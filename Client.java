@@ -1,4 +1,4 @@
-package com.example.hairbooking;
+package com.example;
 
 public class Client {
     private int id;
