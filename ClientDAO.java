@@ -1,15 +1,14 @@
-package com.example.hairbooking;
+package com.example;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientDAO {
-    private String url = "jdbc:sqlite:hair_booking.db";
+    private final String url = "jdbc:sqlite:hair_booking.db";
 
     public void addClient(Client client) {
         String sql = "INSERT INTO clients(name, hair_service, appointment_date, phone_number, address) VALUES(?, ?, ?, ?, ?)";
-
         try (Connection conn = DriverManager.getConnection(url);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, client.getName());
@@ -26,7 +25,6 @@ public class ClientDAO {
     public List<Client> getAllClients() {
         List<Client> clients = new ArrayList<>();
         String sql = "SELECT * FROM clients";
-
         try (Connection conn = DriverManager.getConnection(url);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -45,6 +43,7 @@ public class ClientDAO {
         }
         return clients;
     }
+}
 
     
 }
