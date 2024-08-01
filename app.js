@@ -32,7 +32,7 @@ const highlightMenu = () => {
 window.addEventListener('scroll', highlightMenu);
 window.addEventListener('click', highlightMenu);
 
-// Close mobile menu when clicking outside or on a menu item
+// Close mobile menu
 const hideMobileMenu = (e) => {
     const menuBars = document.querySelector('.is-active');
     if (window.innerWidth < 768 && menuBars && e.target.classList.contains('navbar__links')) {
